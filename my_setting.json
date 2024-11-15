@@ -1,0 +1,886 @@
+{
+    // #diff
+    "diffEditor.ignoreTrimWhitespace": false,
+
+    // #font
+    "editor.fontSize": 14,
+    "editor.fontFamily": "Consolas, 'Droid Sans Mono', 'monospace', monospace",
+    // #code snippet
+    "editor.suggestSelection": "recentlyUsedByPrefix",
+    //
+    "editor.tokenColorCustomizations": {
+        "comments": "#00ffff80",// //
+        "functions": "#00ffff",
+        "keywords": "#00ffff",
+        "numbers": "#00ffff",
+        "strings": "#00ffff",
+        "types": "#00ffff",
+        "variables": "#00ffff",
+        "textMateRules": [
+            //constant.character.escape",               //"\r\n"\
+            //constant.numeric",                        //数字:50 10  0x20的20部分
+            //constant.other.placeholder",              //"%s %c"
+            //entity.name.function",                    //直接调用的函数
+            //entity.name.type",                        //typedef定义的变量
+            //keyword.control",                         //if switch break return
+            //keyword.operator.assignment",             // =等号/赋值号 |= &=
+            //keyword.operator.logical",                //逻辑符号 && || !
+            //keyword.operator.word                     //and or not
+            //meta",                                    //括号 函数声明的括号 调用的括号...
+            //punctuation.definition.comment",          // // /*注释开头
+            //punctuation.definition.string.begin",     //左双引号
+            //punctuation.definition.string.end",       //右双引号
+            //punctuation.separator",                   //冒号 逗号
+            //punctuation.terminator",                  //分号
+            //storage.modifier",                        //static const
+            //storage.type",                            //void int char 
+            //string.quoted.single",                    //单引号字符串
+            //string.quoted.double",                    //双引号字符串
+            //string.quoted.triple",                    //三引号字符串
+            //##########################################################################
+            /*
+        009999
+            //引号内
+        33c0b0
+            //函数的参数名称
+        66cc99
+            //单引号字符串, py中单双引号字符串
+
+        00ff99
+            //py import后, c++命名空间
+        3399cc
+            //冒号 逗号
+
+        00cccc
+            //双引号字符串
+        00ffcc
+            // * -
+        3366ff
+            //包括 c++ typedef, using
+            //static const
+        6666ff
+            //c中%d,%c
+        0080ff
+            // c中include的文件名
+        3380ff
+            //逻辑符号：如 and or, 仅fontstyle?, && || 改变
+        0099ff
+            //运算符号，如 +-*=/
+        3399ff
+            //html中<>内元素
+            //类和函数的定义单词颜色 def class
+        9999ff
+            //换行符、转义符等如 ：\r \n
+
+        00bbff
+            //类的名称颜色, 如class abc()中的abc, typedef qwe abc中的abc
+        30c0ff
+            //系统内置的函数名称的颜色 如：print len __init__
+        00ccff
+            // 系统的控制关键词, 如 if pass return switch break #include #define import
+        33ccff
+            //左单双引号
+            //右单双引号
+        66ccff
+            //数字:50 10  0x20的20部分
+        99ccff
+            //定义与调用的函数名, 中括号, <<, >>, #define qwe asd中的qwe
+        ccccff
+
+        00ffff
+            //json中无效键
+            //分号;
+        00ffff66<!--注释-->
+        66ffff
+            //py变量,局部与全局不同
+        99ffff
+            // html中属性
+            //json属性键
+            // js变量名 如 document,
+            //c变量
+            */
+            //##########################################################################
+            //注释
+            {
+                "scope":"comment",
+                "settings": {
+                    "foreground": "#00ffff80",
+                    //"fontStyle": "bold"
+                }
+            },
+            /*注释*/
+            {
+                "scope":"comment.block",
+                "settings": {
+                    "foreground": "#00ffff80",
+                    "fontStyle": ""
+                }
+            },
+            //?
+            {
+                "scope":"comment.block.documentation",
+                "settings": {
+                    "foreground": "#ff00ff",
+                    "fontStyle":"strikethrough"
+                }
+            },
+            //  //后的内容
+            {
+                "scope":"comment.line",
+                "settings": {
+                    "foreground": "#00ffff80",
+                    "fontStyle":""
+                }
+            },
+            //包含false, true
+            {
+                "scope":"constant",
+                "settings": {
+                    "foreground": "#00ffff",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope":"constant.character",
+                "settings": {
+                    "foreground": "#FF0000",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            //换行符、转义符等如 ：\r \n
+            {
+                "scope": "constant.character.escape", //"\r\n"
+                "settings": {
+                    "foreground": "#9999ff",
+                    "fontStyle": ""
+                }
+            },
+            //数字:50 10  0x20的20部分
+            {
+                "scope":"constant.numeric",
+                "settings": {
+                    "foreground": "#66ccff",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope": [
+                    "constant.numeric.hex",
+                    "constant.numeric.integer",
+                    "constant.numeric.octal",
+                ],
+                "settings": {
+                    "foreground": "#ff0000",
+                    "fontStyle":"strikethrough"
+                }
+            },
+            {
+                "scope": [
+                    "constant.other",
+                ],
+                "settings": {
+                    "foreground": "#00ffff",
+                    "fontStyle":"strikethrough"
+                }
+            },
+            //c中%d,%c
+            {
+                "scope": [
+                    "constant.other.placeholder",
+                ],
+                "settings": {
+                    "foreground": "#6666ff",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope": [
+                    "constant.other.symbol",
+                ],
+                "settings": {
+                    "foreground": "#9dff00",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            {
+                "scope": [
+                    "constant.regexp",
+                    "constant.rgb-value",
+                    "emphasis",
+                ],
+                "settings": {
+                    "foreground": "#2fff00",
+                    "fontStyle":"strikethrough"
+                }
+            },
+            {
+                "scope":"entity",
+                "settings": {
+                    "foreground": "#00ffff",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            //py import后, c++命名空间
+            {
+                "scope":"entity.name",
+                "settings": {
+                    "foreground": "#00ff99",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope":"entity.name.class",
+                "settings": {
+                    "foreground": "#a600ff",
+                    "fontStyle":"strikethrough"
+                }
+            },
+            //定义与调用的函数名, 中括号, <<, >>, #define qwe asd中的qwe
+            {
+                "scope":"entity.name.function",
+                "settings": {
+                    "foreground": "#99ccff",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope":"entity.name.method",
+                "settings": {
+                    "foreground": "#FF0000",
+                    "fontStyle": "strikethrough"
+                }
+            },
+
+            {
+                "scope": [
+                    "entity.name.section",
+                    "entity.name.selector",
+                ],
+                "settings": {
+                    "foreground": "#1eff00",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            //html中<>内元素
+            {
+                "scope": [
+                    "entity.name.tag",
+                ],
+                "settings": {
+                    "foreground": "#3399ff",
+                    "fontStyle": ""
+                }
+            },
+            //类的名称颜色, 如class abc()中的abc, typedef qwe abc中的abc, 头文件引入的?如string
+            {
+                "scope": "entity.name.type", //函数和类的名称颜色
+                "settings": {
+                    "foreground": "#00bbff",
+                    "fontStyle": ""
+                },
+                
+            },
+            {
+                "scope": [
+                    "entity.other",
+                ],
+                "settings": {
+                    "foreground": "#1aff00",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            // html中属性
+            {
+                "scope": [
+                    "entity.other.attribute-name",
+                ],
+                "settings": {
+                    "foreground": "#99ffff",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope": [
+                    "entity.other.inherited-class",
+                ],
+                "settings": {
+                    "foreground": "#FF0000",
+                    "fontStyle":"italic bold strikethrough"
+                }
+            },
+            {
+                "scope":"invalid",
+                "settings": {
+                    "foreground": "#ee00ff",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            {
+                "scope": [
+                    "invalid.deprecated",
+                ],
+                "settings": {
+                    "foreground": "#fffb00",
+                    "fontStyle": "strikethrough"
+                },
+            },
+            //json中无效键
+            {
+                "scope": [
+                    "invalid.illegal",
+                ],
+                "settings": {
+                    "foreground": "#00ffff",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope":"keyword",
+                "settings": {
+                    "foreground": "#00ffff",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            //系统的控制关键词, 如 if pass return switch break #include #define import
+            {
+                "scope": "keyword.control",
+                "settings": {
+                    "foreground": "#00ccff",
+                    "fontStyle": ""
+                }
+            },
+            //运算符号，如 +-*=/
+            {
+                "scope": "keyword.operator", //=等号/赋值号 |= &=
+                "settings": {
+                    "foreground": "#0099ff",
+                    "fontStyle": ""
+                }
+            },
+            // * -
+            {
+                "scope":"keyword.operator.arithmetic",
+                "settings": {
+                    "foreground": "#00ffcc",
+                    "fontStyle":""
+                }
+            },
+            // =
+            {
+                "scope":"keyword.operator.assignment",
+                "settings": {
+                    "foreground": "#00ffff",
+                    "fontStyle": ""
+                }
+            },
+            //逻辑符号：如 and or, 仅fontstyle?, && || 改变
+            {
+                "scope": "keyword.operator.logical", //逻辑符号 && || !
+                "settings": {
+                    "foreground": "#3380ff",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope":"keyword.operator.new",
+                "settings": {
+                    "foreground": "#d400ff",
+                    "fontStyle":"strikethrough"
+                }
+            },
+            {
+                "scope": "keyword.operator.word",
+                "settings": {
+                    "foreground": "#FF0000",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            //包括 c++ typedef, using
+            {
+                "scope":"keyword.other",
+                "settings": {
+                    "foreground": "#3366ff",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope": [
+                    "markup",
+                    "markup.bold",
+                    "markup.changed",
+                    "markup.deleted",
+                    "markup.heading",
+                    "markup.inline.raw",
+                    "markup.inserted",
+                    "markup.italic",
+                    "markup.list",
+                    "markup.list.numbered",
+                    "markup.list.unnumbered",
+                    "markup.other",
+                    "markup.quote",
+                    "markup.raw",
+                    "markup.underline",
+                    "markup.underline.link",
+                ],
+                "settings": {
+                    "foreground": "#33ff00",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            //c++, js, json中函数内空格
+            {
+                "scope":"meta",
+                "settings": {
+                    "foreground": "#00ffff",
+                    "fontStyle": ""
+                }
+            },
+            //函数内空格, c++仅if, while?
+            {
+                "scope": "meta.block",
+                "settings": {
+                    "foreground": "#00ffff",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope": "meta.cast",
+                "settings": {
+                    "foreground": "#00ff80",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            //py类名, 仅:和fontstyle?
+            {
+                "scope": "meta.class",
+                "settings": {
+                    "foreground": "#00ffff",
+                    "fontStyle": ""
+                }
+            },
+            //函数符号, 仅fontstyle?, py :改变
+            {
+                "scope":"meta.function",
+                "settings": {
+                    "foreground": "#00ffff",
+                    "fontStyle": ""
+                }
+            },
+            //js .调用, py, c系统?函数调用, 仅fontstyle?
+            {
+                "scope":"meta.function-call",
+                "settings": {
+                    "foreground": "#00ffff",
+                    "fontStyle": ""
+                }
+            },
+            //c中#define,#include所在行, 仅fontstyle?
+            {
+                "scope": [
+                    "meta.preprocessor",
+                ],
+                "settings": {
+                    "foreground": "#00ffff",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope": [
+                    "meta.return-type",
+                    "meta.selector",
+                ],
+                "settings": {
+                    "foreground": "#FF0000",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            //html中<>及内部, 仅fontstyle?
+            {
+                "scope": [
+                    "meta.tag",
+                ],
+                "settings": {
+                    "foreground": "#00ffff",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope": [
+                    "meta.type",
+                    "meta.type.annotation",
+                ],
+                "settings": {
+                    "foreground": "#62ff00",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            //左单双引号
+            {
+                "scope": "punctuation.definition.string.begin",
+                "settings": {
+                    "foreground": "#33ccff",
+                    "fontStyle": ""
+                }
+            },
+            //右单双引号
+            {
+                "scope": "punctuation.definition.string.end",
+                "settings": {
+                    "foreground": "#33ccff",
+                    "fontStyle": ""
+                }
+            },
+            //冒号 逗号
+            {
+                "scope": "punctuation.separator",
+                "settings": {
+                    "foreground": "#3399cc",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope": "punctuation.separator.continuation",
+                "settings": {
+                    "foreground": "#37ff00",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            //分号;
+            {
+                "scope": [
+                    "punctuation.terminator",
+                ],
+                "settings": {
+                    "foreground": "#00ffff",
+                    "fontStyle": ""
+                }
+            },
+            //定义名 int, struct
+            {
+                "scope": "storage",
+                "settings": {
+                    "foreground": "#00ffff",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            //static const
+            {
+                "scope": "storage.modifier",
+                "settings": {
+                    "foreground": "#3366ff",
+                    "fontStyle": ""
+                }
+            },
+            //类和函数的定义单词颜色 def class
+            {
+                "scope": "storage.type", //void int char 
+                "settings": {
+                    "foreground": "#3399ff",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope": "string",
+                "settings": {
+                    "foreground": "#00ffff",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            {
+                "scope": [
+                    "string.interpolated",
+                    "string.other",
+                ],
+                "settings": {
+                    "foreground": "#d4ff00",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            //引号内
+            {
+                "scope": "string.quoted",
+                "settings": {
+                    "foreground": "#009999",
+                    "fontStyle": ""
+                }
+            },
+            //双引号字符串
+            {
+                "scope": "string.quoted.double",
+                "settings": {
+                    "foreground": "#00cccc",
+                    "fontStyle": ""
+                }
+            },
+            //c中include的文件名
+            {
+                "scope": "string.quoted.other",
+                "settings": {
+                    "foreground": "#0080ff",
+                    "fontStyle": ""
+                }
+            },
+            //单引号字符串, py中单双引号字符串
+            {
+                "scope": "string.quoted.single",
+                "settings": {
+                    "foreground": "#66cc99",
+                    "fontStyle": ""
+                }
+            },
+            //三引号字符串
+            {
+                "scope": "string.quoted.triple",
+                "settings": {
+                    "foreground": "#00ffff",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            {
+                "scope": [
+                    "string.regexp",
+                    "string.unquoted",
+                ],
+                "settings": {
+                    "foreground": "#ff9900",
+                    "fontStyle": "italic bold strikethrough"
+                }
+            },
+            {
+                "scope": "strong",
+                "settings": {
+                    "foreground": "#66ff00",
+                    "fontStyle": "italic bold strikethrough"
+                }
+            },
+            {
+
+                "scope": "support",
+                "settings": {
+                    "foreground": "#00ffff",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            {
+                "scope": "support.class",
+                "settings": {
+                    "foreground": "#00ff95",
+                    "fontStyle": "italic bold strikethrough"
+                }
+            },
+            {
+                "scope": "support.constant",
+                "settings": {
+                    "foreground": "#ff7f00",
+                    "fontStyle": "italic bold strikethrough"
+                }
+            },
+            //系统内置的函数名称的颜色 如：print len __init__
+            {
+                "scope": "support.function",
+                "settings": {
+                    "foreground": "#30c0ff",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope": "support.other",
+                "settings": {
+                    "foreground": "#ff7f00",
+                    "fontStyle": "italic bold strikethrough"
+                }
+            },
+            {
+                "scope": "support.type",
+                "settings": {
+                    "foreground": "#ffaa00",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            //json属性键
+            {
+                "scope": "support.type.property-name",
+                "settings": {
+                    "foreground": "#99ffffff",
+                    "fontStyle": ""
+                }
+            },
+            // js变量名 如 document,
+            {
+                "scope": "support.variable",
+                "settings": {
+                    "foreground": "#99ffffff",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope": "variable",
+                "settings": {
+                    "foreground": "#ff7f00",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            {
+                "scope": "variable.language",
+                "settings": {
+                    "foreground": "#ff7f00",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            {
+                "scope": "variable.name",
+                "settings": {
+                    "foreground": "#ff7f00",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            //c变量
+            {
+                "scope": "variable.other", //结构体对象和成员等
+                "settings": { //VSCode使用C的颜色限制，这一点比较坑
+                    "foreground": "#99ffffff", //比如Public.Delay(),颜色是一起变得
+                    "fontStyle": "" //不能单独设置Public和Delay的显示颜色
+                } //可能因为VS Code主要用于前端，对C的支持不够完善
+            },
+            //py变量,如 __name__, 局部与全局不同
+            {
+                "scope": "variable.other.readwrite",
+                "settings": {
+                    "foreground": "#66ffff",
+                    "fontStyle": ""
+                }
+            },
+            //函数的参数名称
+            {
+                "scope": "variable.parameter", //函数参数-定义阶段
+                "settings": {
+                    "foreground": "#33c0b0",
+                    "fontStyle": ""
+                }
+            },
+        ],
+    },
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+
+    // #文件夹紧凑显示
+    "explorer.compactFolders": false,
+    // #delete confirm
+    "explorer.confirmDelete": false,
+    // #extensions
+    "extensions.autoUpdate": false,
+    "extensions.ignoreRecommendations": true,
+
+    // #语言匹配
+    "files.associations": {
+        "*.c": "c",
+    },
+    // #文件自动保存
+    "files.autoSave":"off",
+    // #默认lf结尾
+    "files.eol": "\n",
+
+    // #svg preview configure
+    "svg.preview.mode": "svg",
+    // #sync git
+    //"sync.gist": "......"
+    //
+    //
+
+    
+
+
+    //终端
+    "terminal.integrated.drawBoldTextInBrightColors": true,
+    "terminal.integrated.fontSize": 14,
+    
+
+    // #vscode update tips
+    "update.mode": "none",
+
+    // #vim
+    "vim.handleKeys": {
+        "<C-C>": false,
+        "<C-d>": true,
+        "<C-s>": false,
+        "<C-z>": false,
+        "<C-x>": false
+    },
+
+    //
+    "workbench.colorCustomizations": {
+        "editor.selectionBackground":"default",
+        "editor.selectionForeground":"#ff0000",
+        "editor.selectionHighlightBackground":"#00ffff33",
+        "editor.selectionHighlightBorder":"#0099ff",
+        "editor.wordHighlightBackground":"#6699ff66",
+        "editor.wordHighlightBorder":"#00ccff",
+        "editor.wordHighlightStrongBackground":"default",
+        "editor.wordHighlightStrongBorder":"default",
+        "editor.wordHighlightTextBackground":"#6699ff66",
+        //状态栏
+        "statusBar.background":"#007acc",
+        //"statusBar.noFolderBackground":"#68217a",
+        "statusBar.debuggingBackground":"#2060ff",
+        "statusBar.noFolderBackground":"#007acc",
+        //终端
+        "terminal.ansiBlack":"#000000",
+        "terminal.ansiBlue":"#2472c8",
+        "terminal.background": "default",
+        "terminal.border":"#808080",
+        "terminal.dropBackground": "#00ffff66",
+        "terminal.findMatchBackground":"#00ffff66",
+        "terminal.findMatchBorder":"#00ffff",
+        "terminal.findMatchHighlightBackground":"#00ffff66",
+        "terminal.findMatchHighlightBorder":"#00ffff",
+        "terminal.foreground": "#33a0ff",
+        "terminal.hoverHighlightBackground":"#00ffff",
+        "terminal.inactiveSelectionBackground":"#00ffff66",
+        "terminal.initialHintForeground":"#00ffff66",
+        "terminal.selectionBackground":"#3399ff",
+        "terminal.selectionForeground":"#00ffff66",
+        "terminal.tab.activeBorder":"#0078d4",
+
+        "terminalCommandDecoration.defaultBackground":"#00ffff",
+        "terminalCommandDecoration.errorBackground":"#00ffff",
+        "terminalCommandDecoration.successBackground":"#1b81a8",
+        "terminalCommandGuide.foreground":"#37373d",
+        "terminalCursor.background":"#04ff00",
+        "terminalCursor.foreground":"#00ccff",
+    },
+    //theme
+    "workbench.colorTheme": "Visual Studio Dark",
+    // #预览
+    "workbench.editor.enablePreview": false,
+    // #新开窗口
+    "workbench.startupEditor": "newUntitledFile",
+    // #ui缩放
+    "window.zoomLevel": 0.2,
+
+
+    // #svg formatter
+    "[svg]": {
+        //"editor.defaultFormatter": "jock.svg"
+    },
+
+
+
+    // #python format
+    "[python]": {
+        //"editor.defaultFormatter": "ms-python.python"
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+        
+    },
+    "black-formatter.args": [
+        "--skip-string-normalization",
+        //"--line-length", "110",
+    ],
+    "python.defaultInterpreterPath": "python",
+
+    "cmake.pinnedCommands": [
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ],
+    "git.autofetch": true,
+
+}

@@ -403,28 +403,149 @@
                     "fontStyle": ""
                 }
             },
+            //包括md:表格符号及内容,$$,```符号及内容,~~符号及内容
             {
                 "scope": [
                     "markup",
-                    "markup.bold",
-                    "markup.changed",
-                    "markup.deleted",
-                    "markup.heading",
-                    "markup.inline.raw",
-                    "markup.inserted",
-                    "markup.italic",
-                    "markup.list",
-                    "markup.list.numbered",
-                    "markup.list.unnumbered",
-                    "markup.other",
-                    "markup.quote",
-                    "markup.raw",
-                    "markup.underline",
-                    "markup.underline.link",
                 ],
                 "settings": {
-                    "foreground": "#33ff00",
+                    "foreground": "#00ffff",
+                    "fontStyle": ""
+                }
+            },
+            //md粗体,md两个**or__及之间的内容
+            {
+                "scope": [
+                    "markup.bold",
+                ],
+                "settings": {
+                    "foreground": "#60a0ff",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope": [
+
+                    "markup.changed",
+                    "markup.deleted",
+                ],
+                "settings": {
+                    "foreground": "#FF0000",
                     "fontStyle": "strikethrough"
+                }
+            },
+            //md标题符号#及之后的空格,---,===
+            {
+                "scope": [
+                    "markup.heading",
+                ],
+                "settings": {
+                    "foreground": "#4080ff",
+                    "fontStyle": ""
+                }
+            },
+            //md函数或代码,``及之间的内容
+            {
+                "scope": [
+                    "markup.inline.raw",
+                ],
+                "settings": {
+                    "foreground": "#30c0ff",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope": [
+                    "markup.inserted",
+                ],
+                "settings": {
+                    "foreground": "#FF0000",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            //md斜体, md两个_or*之间的内容(?)
+            {
+                "scope": [
+                    "markup.italic",
+                ],
+                "settings": {
+                    "foreground": "#4080ff",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope": [
+                    "markup.list",
+                ],
+                "settings": {
+                    "foreground": "#ff0000",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            //md有序列表数字前后空格及嵌套空格
+            {
+                "scope": [
+                    "markup.list.numbered",
+                ],
+                "settings": {
+                    "foreground": "#0020c0",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            //md无序列表+-*前后空格及嵌套空格
+            {
+                "scope": [
+                    "markup.list.unnumbered",
+                ],
+                "settings": {
+                    "foreground": "#0040a0",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            {
+                "scope": [
+                    "markup.other",
+                ],
+                "settings": {
+                    "foreground": "#ff9500",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            //md区块符号>前空格及>后一个空格, 相邻符号后空格覆盖前空格
+            {
+                "scope": [
+                    "markup.quote",
+                ],
+                "settings": {
+                    "foreground": "#0070ff",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            //md代码区块(四个空格(tab)及之后的内容)
+            {
+                "scope": [
+                    "markup.raw",
+                ],
+                "settings": {
+                    "foreground": "#006060",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope": [
+                    "markup.underline",
+                ],
+                "settings": {
+                    "foreground": "#ff0000",
+                    "fontStyle": "strikethrough"
+                }
+            },
+            //md链接及脚注
+            {
+                "scope":"markup.underline.link",
+                "settings": {
+                    "foreground": "#2060ff",
+                    "fontStyle": ""
                 }
             },
             //c++, js, json中函数内空格
@@ -446,7 +567,7 @@
             {
                 "scope": "meta.cast",
                 "settings": {
-                    "foreground": "#00ff80",
+                    "foreground": "#ff00a2",
                     "fontStyle": "strikethrough"
                 }
             },
@@ -510,7 +631,7 @@
                     "meta.type.annotation",
                 ],
                 "settings": {
-                    "foreground": "#62ff00",
+                    "foreground": "#ff0033",
                     "fontStyle": "strikethrough"
                 }
             },
@@ -541,7 +662,7 @@
             {
                 "scope": "punctuation.separator.continuation",
                 "settings": {
-                    "foreground": "#37ff00",
+                    "foreground": "#fff200",
                     "fontStyle": "strikethrough"
                 }
             },
@@ -649,7 +770,7 @@
             {
                 "scope": "strong",
                 "settings": {
-                    "foreground": "#66ff00",
+                    "foreground": "#eaff00",
                     "fontStyle": "italic bold strikethrough"
                 }
             },
@@ -664,7 +785,7 @@
             {
                 "scope": "support.class",
                 "settings": {
-                    "foreground": "#00ff95",
+                    "foreground": "#ff003c",
                     "fontStyle": "italic bold strikethrough"
                 }
             },

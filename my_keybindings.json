@@ -1,0 +1,24 @@
+// 将键绑定放在此文件中以覆盖默认值
+[
+    { 
+        "key": "ctrl+shift+c",
+        "command": "editor.action.clipboardCopyAction",
+        "when": "isLinux"
+    },
+    { 
+        "key": "ctrl+shift+v",
+        "command": "editor.action.clipboardPasteAction",
+        "when": "isLinux"
+    },
+    {
+        "key": "escape",
+        "command": "toggleVim",
+        "when": "vim.mode == 'Disabled' || vim.mode == 'Normal'"
+    },
+    {
+        "key": "ctrl+shift+c",
+        "command": "-workbench.action.terminal.openNativeConsole",
+        "when": "!terminalFocus"
+    },
+
+]

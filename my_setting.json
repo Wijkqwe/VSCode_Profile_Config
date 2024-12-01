@@ -1,15 +1,48 @@
 {
+    // #c format
+    "[c]": {
+        "editor.wordBasedSuggestions": "off",
+        "editor.semanticHighlighting.enabled": true,
+        "editor.stickyScroll.defaultModel": "foldingProviderModel",
+        "editor.suggest.insertMode": "replace"
+    },
+    
+    // #cpp format
+    "[cpp]": {
+        //"editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
+        //"editor.defaultFormatter": "ms-vscode.cpptools",
+        "editor.formatOnSave": true,
+        "editor.wordBasedSuggestions": "off",
+        "editor.semanticHighlighting.enabled": true,
+        "editor.stickyScroll.defaultModel": "foldingProviderModel",
+        "editor.suggest.insertMode": "replace",
+        
+    },
+    //clang-format
+    //"C_Cpp.clang_format_fallbackStyle": "LLVM",
+    //"C_Cpp.clang_format_path": "C:\\Users\\123\\.vscode\\extensions\\ms-vscode.cpptools-1.22.11-win32-x64\\LLVM\\bin\\clang-format.exe",
+    //"C_Cpp.clang_format_sortIncludes": ,
+    //"C_Cpp.clang_format_style": "file:C:\\Users\\123\\.vscode\\extensions\\ms-vscode.cpptools-1.22.11-win32-x64\\LLVM\\bin\\.clang-format",
+    "C_Cpp.formatting": "clangFormat",
+    
+
+    
+
+
+
     // #diff
     "diffEditor.ignoreTrimWhitespace": false,
 
+    "editor.cursorSurroundingLines": 10,
     // #font
-    "editor.fontSize": 14,
     "editor.fontFamily": "Consolas, 'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontLigatures": false,
+    "editor.fontSize": 14,
     // #code snippet
     "editor.suggestSelection": "recentlyUsedByPrefix",
     //
     "editor.tokenColorCustomizations": {
-        "comments": "#00ffff80",// //
+        "comments": "#00aaff80",// //
         "functions": "#00ffff",
         "keywords": "#00ffff",
         "numbers": "#00ffff",
@@ -51,10 +84,11 @@
         3399cc
             //冒号 逗号
 
-        00cccc
-            //双引号字符串
         00ffcc
             // * -
+        00bbdd
+            //双引号字符串
+
         3366ff
             //包括 c++ typedef, using
             //static const
@@ -71,7 +105,8 @@
             //类和函数的定义单词颜色 def class
         9999ff
             //换行符、转义符等如 ：\r \n
-
+        00aaff80
+            <!--注释-->
         00bbff
             //类的名称颜色, 如class abc()中的abc, typedef qwe abc中的abc
         30c0ff
@@ -90,7 +125,6 @@
         00ffff
             //json中无效键
             //分号;
-        00ffff66<!--注释-->
         66ffff
             //py变量,局部与全局不同
         99ffff
@@ -104,7 +138,7 @@
             {
                 "scope":"comment",
                 "settings": {
-                    "foreground": "#00ffff80",
+                    "foreground": "#00aaff80",
                     //"fontStyle": "bold"
                 }
             },
@@ -112,7 +146,7 @@
             {
                 "scope":"comment.block",
                 "settings": {
-                    "foreground": "#00ffff80",
+                    "foreground": "#00aaff80",
                     "fontStyle": ""
                 }
             },
@@ -128,7 +162,7 @@
             {
                 "scope":"comment.line",
                 "settings": {
-                    "foreground": "#00ffff80",
+                    "foreground": "#00aaff80",
                     "fontStyle":""
                 }
             },
@@ -143,7 +177,7 @@
             {
                 "scope":"constant.character",
                 "settings": {
-                    "foreground": "#FF0000",
+                    "foreground": "#ffcc00",
                     "fontStyle": "strikethrough"
                 }
             },
@@ -166,12 +200,30 @@
             {
                 "scope": [
                     "constant.numeric.hex",
+                ],
+                "settings": {
+                    "foreground": "#aa00ff",
+                    "fontStyle":"strikethrough"
+                }
+            },
+            //YAML中部分值
+            {
+                "scope": [
                     "constant.numeric.integer",
+                ],
+                "settings": {
+                    "foreground": "#66ee99",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope": [
+
                     "constant.numeric.octal",
                 ],
                 "settings": {
-                    "foreground": "#ff0000",
-                    "fontStyle":"strikethrough"
+                    "foreground": "#f200ff",
+                    "fontStyle": "bold"
                 }
             },
             {
@@ -246,18 +298,26 @@
             {
                 "scope":"entity.name.method",
                 "settings": {
-                    "foreground": "#FF0000",
+                    "foreground": "#ffbf00",
                     "fontStyle": "strikethrough"
                 }
             },
-
+            //md标题#后内容
             {
                 "scope": [
                     "entity.name.section",
+                ],
+                "settings": {
+                    "foreground": "#2280ee",
+                    "fontStyle": ""
+                }
+            },
+            {
+                "scope": [
                     "entity.name.selector",
                 ],
                 "settings": {
-                    "foreground": "#1eff00",
+                    "foreground": "#f700ff",
                     "fontStyle": "strikethrough"
                 }
             },
@@ -280,12 +340,13 @@
                 },
                 
             },
+            //包括(YAML(---)(...))
             {
                 "scope": [
                     "entity.other",
                 ],
                 "settings": {
-                    "foreground": "#1aff00",
+                    "foreground": "#33ffcc",
                     "fontStyle": "strikethrough"
                 }
             },
@@ -304,7 +365,7 @@
                     "entity.other.inherited-class",
                 ],
                 "settings": {
-                    "foreground": "#FF0000",
+                    "foreground": "#ffc800",
                     "fontStyle":"italic bold strikethrough"
                 }
             },
@@ -320,7 +381,7 @@
                     "invalid.deprecated",
                 ],
                 "settings": {
-                    "foreground": "#fffb00",
+                    "foreground": "#ff00e1",
                     "fontStyle": "strikethrough"
                 },
             },
@@ -391,7 +452,7 @@
             {
                 "scope": "keyword.operator.word",
                 "settings": {
-                    "foreground": "#FF0000",
+                    "foreground": "#ffd000",
                     "fontStyle": "strikethrough"
                 }
             },
@@ -430,7 +491,7 @@
                     "markup.deleted",
                 ],
                 "settings": {
-                    "foreground": "#FF0000",
+                    "foreground": "#dd00ff",
                     "fontStyle": "strikethrough"
                 }
             },
@@ -459,7 +520,7 @@
                     "markup.inserted",
                 ],
                 "settings": {
-                    "foreground": "#FF0000",
+                    "foreground": "#ffa600",
                     "fontStyle": "strikethrough"
                 }
             },
@@ -478,7 +539,7 @@
                     "markup.list",
                 ],
                 "settings": {
-                    "foreground": "#ff0000",
+                    "foreground": "#ffb700",
                     "fontStyle": "strikethrough"
                 }
             },
@@ -492,14 +553,14 @@
                     "fontStyle": "strikethrough"
                 }
             },
-            //md无序列表+-*前后空格及嵌套空格
+            //md无序列表+-*(前后空格,嵌套空格,使用html标签及之后的内容)
             {
                 "scope": [
                     "markup.list.unnumbered",
                 ],
                 "settings": {
-                    "foreground": "#0040a0",
-                    "fontStyle": "strikethrough"
+                    "foreground": "#4080ff",
+                    "fontStyle": ""
                 }
             },
             {
@@ -536,7 +597,7 @@
                     "markup.underline",
                 ],
                 "settings": {
-                    "foreground": "#ff0000",
+                    "foreground": "#ffbf00",
                     "fontStyle": "strikethrough"
                 }
             },
@@ -567,7 +628,7 @@
             {
                 "scope": "meta.cast",
                 "settings": {
-                    "foreground": "#ff00a2",
+                    "foreground": "#ff00fb",
                     "fontStyle": "strikethrough"
                 }
             },
@@ -611,7 +672,7 @@
                     "meta.selector",
                 ],
                 "settings": {
-                    "foreground": "#FF0000",
+                    "foreground": "#ee00ff",
                     "fontStyle": "strikethrough"
                 }
             },
@@ -631,7 +692,7 @@
                     "meta.type.annotation",
                 ],
                 "settings": {
-                    "foreground": "#ff0033",
+                    "foreground": "#ee00ff",
                     "fontStyle": "strikethrough"
                 }
             },
@@ -662,7 +723,7 @@
             {
                 "scope": "punctuation.separator.continuation",
                 "settings": {
-                    "foreground": "#fff200",
+                    "foreground": "#d900ff",
                     "fontStyle": "strikethrough"
                 }
             },
@@ -703,7 +764,7 @@
             {
                 "scope": "string",
                 "settings": {
-                    "foreground": "#00ffff",
+                    "foreground": "#ff00ea",
                     "fontStyle": "strikethrough"
                 }
             },
@@ -713,7 +774,7 @@
                     "string.other",
                 ],
                 "settings": {
-                    "foreground": "#d4ff00",
+                    "foreground": "#ffcc00",
                     "fontStyle": "strikethrough"
                 }
             },
@@ -729,7 +790,7 @@
             {
                 "scope": "string.quoted.double",
                 "settings": {
-                    "foreground": "#00cccc",
+                    "foreground": "#00bbdd",
                     "fontStyle": ""
                 }
             },
@@ -753,24 +814,33 @@
             {
                 "scope": "string.quoted.triple",
                 "settings": {
-                    "foreground": "#00ffff",
+                    "foreground": "#fff200",
                     "fontStyle": "strikethrough"
                 }
             },
             {
                 "scope": [
                     "string.regexp",
+                ],
+                "settings": {
+                    "foreground": "#ea00ff",
+                    "fontStyle": "italic bold strikethrough"
+                }
+            },
+            //YAML中部分值
+            {
+                "scope": [
                     "string.unquoted",
                 ],
                 "settings": {
-                    "foreground": "#ff9900",
-                    "fontStyle": "italic bold strikethrough"
+                    "foreground": "#44ccaa",
+                    "fontStyle": ""
                 }
             },
             {
                 "scope": "strong",
                 "settings": {
-                    "foreground": "#eaff00",
+                    "foreground": "#fb00ff",
                     "fontStyle": "italic bold strikethrough"
                 }
             },
@@ -778,21 +848,21 @@
 
                 "scope": "support",
                 "settings": {
-                    "foreground": "#00ffff",
+                    "foreground": "#ff00a6",
                     "fontStyle": "strikethrough"
                 }
             },
             {
                 "scope": "support.class",
                 "settings": {
-                    "foreground": "#ff003c",
+                    "foreground": "#c800ff",
                     "fontStyle": "italic bold strikethrough"
                 }
             },
             {
                 "scope": "support.constant",
                 "settings": {
-                    "foreground": "#ff7f00",
+                    "foreground": "#ff4800",
                     "fontStyle": "italic bold strikethrough"
                 }
             },
@@ -807,14 +877,14 @@
             {
                 "scope": "support.other",
                 "settings": {
-                    "foreground": "#ff7f00",
+                    "foreground": "#f200ff",
                     "fontStyle": "italic bold strikethrough"
                 }
             },
             {
                 "scope": "support.type",
                 "settings": {
-                    "foreground": "#ffaa00",
+                    "foreground": "#d900ff",
                     "fontStyle": "strikethrough"
                 }
             },
@@ -837,21 +907,21 @@
             {
                 "scope": "variable",
                 "settings": {
-                    "foreground": "#ff7f00",
+                    "foreground": "#9500ff",
                     "fontStyle": "strikethrough"
                 }
             },
             {
                 "scope": "variable.language",
                 "settings": {
-                    "foreground": "#ff7f00",
+                    "foreground": "#c300ff",
                     "fontStyle": "strikethrough"
                 }
             },
             {
                 "scope": "variable.name",
                 "settings": {
-                    "foreground": "#ff7f00",
+                    "foreground": "#ff00fb",
                     "fontStyle": "strikethrough"
                 }
             },
@@ -882,6 +952,9 @@
         ],
     },
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    //自动换行
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 140,
 
     // #文件夹紧凑显示
     "explorer.compactFolders": false,
@@ -920,28 +993,33 @@
 
     // #vim
     "vim.handleKeys": {
-        "<C-C>": false,
+        "<C-a>": false,
+        "<C-c>": false,
         "<C-d>": true,
         "<C-s>": false,
         "<C-z>": false,
-        "<C-x>": false
+        "<C-x>": false,
     },
+    "vim.smartRelativeLine": true,
 
     //
     "workbench.colorCustomizations": {
-        "editor.selectionBackground":"default",
+        //
+        "editor.selectionBackground":"#ccccff60",
         "editor.selectionForeground":"#ff0000",
-        "editor.selectionHighlightBackground":"#00ffff33",
-        "editor.selectionHighlightBorder":"#0099ff",
-        "editor.wordHighlightBackground":"#6699ff66",
-        "editor.wordHighlightBorder":"#00ccff",
-        "editor.wordHighlightStrongBackground":"default",
+        "editor.selectionHighlightBackground":"#00000000",
+        "editor.selectionHighlightBorder":"#00ccff",
+        "editor.wordHighlightBackground":"#000000e9",
+        "editor.wordHighlightBorder":"#3399ff",
+        //py光标所在词背景颜色
+        "editor.wordHighlightStrongBackground":"#8080cc80",
         "editor.wordHighlightStrongBorder":"default",
-        "editor.wordHighlightTextBackground":"#6699ff66",
+        "editor.wordHighlightTextBackground":"#00000000",
         //状态栏
         "statusBar.background":"#007acc",
         //"statusBar.noFolderBackground":"#68217a",
         "statusBar.debuggingBackground":"#2060ff",
+
         "statusBar.noFolderBackground":"#007acc",
         //终端
         "terminal.ansiBlack":"#000000",
@@ -978,6 +1056,12 @@
     "window.zoomLevel": 0.2,
 
 
+
+
+    
+
+
+
     // #svg formatter
     "[svg]": {
         //"editor.defaultFormatter": "jock.svg"
@@ -1003,5 +1087,7 @@
         "workbench.action.tasks.runTask"
     ],
     "git.autofetch": true,
+    
+    
 
 }
